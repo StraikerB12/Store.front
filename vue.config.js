@@ -9,6 +9,7 @@ const StyleLintPlugin = require("stylelint-webpack-plugin");
 const stylelintFormatter = require("stylelint-formatter-pretty");
 
 module.exports = defineConfig({
+  devServer: { port: 4545, allowedHosts: 'all' },
   transpileDependencies: true,
   configureWebpack: {
     plugins: [
@@ -24,4 +25,25 @@ module.exports = defineConfig({
       }),
     ],
   },
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData: `@import "~@/assets/styles/main.scss";`
+      },
+    }
+  },
+  chainWebpack: config => {
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+        .loader('vue-loader')
+        .tap(options => {
+          options.transpileOptions = {
+            transforms: {
+              dangerousTaggedTemplateString: true,
+            },
+          }
+          return options
+        })
+  }
 });
