@@ -1,5 +1,7 @@
 # This project
 
+    Проект личного информационного агрегатора из Вк и Телеграмма
+
     Vue 3.2 | vue-router | vuex
     sass | element-plus
     typescript | eslint | stylelint
