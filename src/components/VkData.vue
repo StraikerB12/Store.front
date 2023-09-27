@@ -40,8 +40,8 @@
 <style lang="scss" scoped>
     .vk-data {
         &__title {
-            padding: 20px 0;
-            font-size: 22;
+            padding-bottom: 10px;
+            font-size: 14px;
             font-weight: bold;
         }
 

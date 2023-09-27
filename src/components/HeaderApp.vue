@@ -1,7 +1,7 @@
 <template>
     <div class="header-app">
-        <div class="header-app__info">
-            {{ code }}
+        <div v-for="value in dataKeys" :key="value?.id" class="header-app__info">
+            {{ value?.id }}
         </div>
         <div class="header-app__control">
             <el-button type="primary" @click="redirect">Авторизация VK</el-button> 
@@ -16,6 +16,7 @@
             v-model="dialogVisible"
             title="Авторизация"
             width="30%"
+            class="header-app__dialog"
         >
             <!-- :before-close="handleClose" -->
 
@@ -29,19 +30,20 @@
     import { Tools } from '@element-plus/icons-vue'
     import { useMutation } from '@vue/apollo-composable'
     import { getAuthVK } from '@/graphql/querys'
-    import { loadDataKeys } from '@/store/keysData'
+    import { loadDataKeys, dataKeys } from '@/store/keysData'
     import VkData from "@/components/VkData.vue";
+
+    loadDataKeys();
+
 
     const dialogVisible = ref(false)
 
-    loadDataKeys();
-    
     function redirect() {
         window.location.replace("https://oauth.vk.com/authorize?client_id=51746034&display=page&redirect_uri=http://des-star.ru&scope=groups&response_type=code&v=5.131");
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
+    // const code = urlParams.get('code');
 
 
     const variables = ref({
@@ -60,11 +62,15 @@
         console.error(error)
     })
 
-
-
-
-
 </script>
+<style lang="scss">
+    .header-app {
+        &__dialog {
+            border-radius: 16px;
+            background: #25272a;
+        }
+    }
+</style>
 <style lang="scss" scoped>
     .header-app {
         display: flex;

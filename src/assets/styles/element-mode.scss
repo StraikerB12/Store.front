@@ -1,0 +1,20 @@
+.el-input {
+    &__wrapper {
+        background: transparent;
+        box-shadow: 0 0 0 1px $main-border-color inset;
+    }
+}
+
+.el-overlay{
+    background-color: rgb(51 53 59 / 66%);
+}
+
+.el-dialog{
+    &__title{
+        color: $main-text-color;
+    }
+
+    &__body{
+        color: $main-text-color;
+    }
+}
