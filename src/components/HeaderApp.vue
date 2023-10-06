@@ -15,13 +15,14 @@
         <el-dialog
             v-model="dialogVisible"
             title="Авторизация"
-            width="30%"
+            width="750"
             class="header-app__dialog"
         >
-            <!-- :before-close="handleClose" -->
-
-            <VkData />
-            
+            <div class="header-app__dialog-content">
+                <VkData />
+                <span class="header-app__dialog-divider"></span>
+                <TgData />
+            </div>
         </el-dialog>
     </div>
 </template>
@@ -31,9 +32,15 @@
     import { useMutation } from '@vue/apollo-composable'
     import { getAuthVK } from '@/graphql/querys'
     import { loadDataKeys, dataKeys } from '@/store/keysData'
-    import VkData from "@/components/VkData.vue";
+    import VkData from "@/components/VkData.vue"
+    import TgData from "@/components/TgData.vue"
 
-    loadDataKeys();
+    import { useTimeKeys } from "@/authorizationSocial/useTimeKeys"
+
+    loadDataKeys()
+
+    const timeList = useTimeKeys()
+    console.log(timeList)
 
 
     const dialogVisible = ref(false)
@@ -68,6 +75,22 @@
         &__dialog {
             border-radius: 16px;
             background: #25272a;
+
+            &-content {
+                display: flex;
+                justify-content: center;
+
+                & > div {
+                    width: calc(50% - 21px);
+                }
+            }
+
+            &-divider {
+                display: block;
+                width: 1px;
+                margin: 0 20px;
+                background: $main-border-color;
+            }
         }
     }
 </style>

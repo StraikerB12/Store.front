@@ -15,14 +15,11 @@
         <div class="vk-data__control">
             <div class="vk-data__control-block">
                 <el-button-group class="ml-4">
-                    <el-button type="primary">Сохранить</el-button>
+                    <el-button type="primary">Сохранить и авторизоваться</el-button>
                     <el-button type="primary" class="icon">
                         <el-icon><Delete /></el-icon>
                     </el-button>
                 </el-button-group>
-            </div>
-            <div class="vk-data__control-block">
-                <el-button type="primary">Авторизоваться</el-button>
             </div>
         </div>
         
@@ -47,7 +44,7 @@
 
         &__content {
             &-block {
-                margin-bottom: 10px;
+                margin: 10px 0;
             }
         }
 

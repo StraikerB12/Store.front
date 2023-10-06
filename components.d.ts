@@ -8,16 +8,20 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     CardPost: typeof import('./src/components/CardPost.vue')['default']
+    ElAlert: typeof import('element-plus/es')['ElAlert']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
     ElDialog: typeof import('element-plus/es')['ElDialog']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElOption: typeof import('element-plus/es')['ElOption']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
     HeaderApp: typeof import('./src/components/HeaderApp.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TagApp: typeof import('./src/components/TagApp.vue')['default']
+    TgData: typeof import('./src/components/TgData.vue')['default']
     VkData: typeof import('./src/components/VkData.vue')['default']
   }
 }

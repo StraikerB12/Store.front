@@ -12,6 +12,7 @@ module.exports = {
         },
     ],
     rules: {
+        "selector-class-pattern": null,
         "selector-pseudo-class-no-unknown": null,
         "selector-pseudo-element-no-unknown": [
             true,
