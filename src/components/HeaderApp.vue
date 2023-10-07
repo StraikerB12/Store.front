@@ -1,12 +1,9 @@
 <template>
     <div class="header-app">
-        <div v-for="value in dataKeys" :key="value?.id" class="header-app__info">
-            {{ value?.id }}
-        </div>
+        <div class="header-app__info"></div>
         <div class="header-app__control">
             <el-button type="primary" @click="redirect">Авторизация VK</el-button> 
             <el-button type="primary" @click="sendCodeAuthVK(variables)" :loading="loading">Токен VK</el-button>
-            
             <el-button color="#626aef00" dark size="large" circle @click="dialogVisible = true">
                 <el-icon :size="20"><Tools /></el-icon>
             </el-button>
@@ -31,16 +28,12 @@
     import { Tools } from '@element-plus/icons-vue'
     import { useMutation } from '@vue/apollo-composable'
     import { getAuthVK } from '@/graphql/querys'
-    import { loadDataKeys, dataKeys } from '@/store/keysData'
+    import { loadDataKeys, checkKeysTimes } from '@/store/keysData'
     import VkData from "@/components/VkData.vue"
     import TgData from "@/components/TgData.vue"
 
-    import { useTimeKeys } from "@/authorizationSocial/useTimeKeys"
-
     loadDataKeys()
-
-    const timeList = useTimeKeys()
-    console.log(timeList)
+    checkKeysTimes()
 
 
     const dialogVisible = ref(false)

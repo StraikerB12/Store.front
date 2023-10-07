@@ -3,13 +3,25 @@
         <div class="vk-data__title">Данные VK</div>
         <div class="vk-data__content">
             <div class="vk-data__content-block">
-                <el-input v-model="keys.id" placeholder="ID приложения" />
+                <el-input 
+                    v-model="dataKeys.VK.id" 
+                    :disabled="dataKeys.VK.isEnterForm" 
+                    placeholder="ID приложения" 
+                />
             </div>
             <div class="vk-data__content-block">
-                <el-input v-model="keys.secretKey" placeholder="Защищённый ключ" />
+                <el-input 
+                    v-model="dataKeys.VK.secretKey" 
+                    :disabled="dataKeys.VK.isEnterForm" 
+                    placeholder="Защищённый ключ" 
+                />
             </div>
             <div class="vk-data__content-block">
-                <el-input v-model="keys.serviceKey" placeholder="Сервисный ключ доступа" />
+                <el-input 
+                    v-model="dataKeys.VK.serviceKey" 
+                    :disabled="dataKeys.VK.isEnterForm" 
+                    placeholder="Сервисный ключ доступа" 
+                />
             </div>
         </div>
         <div class="vk-data__control">
@@ -26,13 +38,9 @@
     </div>
 </template>
 <script lang="ts" setup>
-    import { ref } from 'vue'
+    import { dataKeys, checkKeysTimes } from '@/store/keysData'
 
-    const keys = ref({
-        id: '',
-        secretKey: '',
-        serviceKey: ''
-    })
+    checkKeysTimes()
 </script>
 <style lang="scss" scoped>
     .vk-data {
