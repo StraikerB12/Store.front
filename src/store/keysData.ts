@@ -35,4 +35,9 @@ export function checkKeysTimes() {
 export async function getDataKeys() {
     const data = await useGetDataKeys()
     _.assignIn(dataKeys ,data)
+
+    for (const item in dataKeys){
+        const value = dataKeys[item as keyof DataKeys].id !== null
+        dataKeys[item as keyof DataKeys].isEnterForm = value
+    }
 }

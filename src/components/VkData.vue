@@ -27,7 +27,7 @@
         <div class="vk-data__control">
             <div class="vk-data__control-block">
                 <el-button-group class="ml-4">
-                    <el-button type="primary">Сохранить и авторизоваться</el-button>
+                    <el-button type="primary" @click="auth">Сохранить и авторизоваться</el-button>
                     <el-button type="primary" class="icon">
                         <el-icon><Delete /></el-icon>
                     </el-button>
@@ -38,9 +38,13 @@
     </div>
 </template>
 <script lang="ts" setup>
-    import { dataKeys, checkKeysTimes } from '@/store/keysData'
+    import { dataKeys } from '@/store/keysData'
+    import { useAddDataKeys } from '@/api/addDataKeys'
 
-    checkKeysTimes()
+    async function auth(){
+        const data = await useAddDataKeys("VK", JSON.stringify(dataKeys.VK))
+        console.log(data)
+    }
 </script>
 <style lang="scss" scoped>
     .vk-data {

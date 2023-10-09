@@ -34,6 +34,17 @@ export const getDataKeys = gql`
     }
 `
 
+export const addDataKeys = gql`
+    mutation addKey ($type: String!, $data: String!) {
+        addKey(input: { type: $type, data: $data }) {
+            type
+            error
+            data
+        }
+    }
+`
+
+
 export const getAuthVK = gql`
     mutation getAuthVK ($code: String!, $redirectUri: String!) {
         authVK(code: $code, redirect_uri: $redirectUri) {
@@ -45,3 +56,5 @@ export const getAuthVK = gql`
         }
     }
 `
+
+

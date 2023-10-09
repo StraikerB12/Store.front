@@ -17,6 +17,7 @@ export function useGetDataKeys() {
             if(!result.loading){
                 const data: ResponseDataKeys[] = result.data.getKeys;
                 const dataKeys = data.reduce<DataKeys>((acc, value) => {
+                    if(!value.data) return acc
                     acc[value.type as keyof DataKeys] = JSON.parse(value.data)
                     return acc
                 }, {} as DataKeys)

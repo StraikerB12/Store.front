@@ -28,11 +28,11 @@
     import { Tools } from '@element-plus/icons-vue'
     import { useMutation } from '@vue/apollo-composable'
     import { getAuthVK } from '@/graphql/querys'
-    import { loadDataKeys, checkKeysTimes } from '@/store/keysData'
+    import { getDataKeys, checkKeysTimes } from '@/store/keysData'
     import VkData from "@/components/VkData.vue"
     import TgData from "@/components/TgData.vue"
 
-    loadDataKeys()
+    getDataKeys()
     checkKeysTimes()
 
 

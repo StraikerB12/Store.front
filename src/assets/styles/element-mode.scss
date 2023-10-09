@@ -1,5 +1,5 @@
-.el-input {
-    &__wrapper {
+.el-input, .el-input.is-disabled {
+    .el-input__wrapper {
         background: transparent;
         box-shadow: 0 0 0 1px $main-border-color inset;
     }
